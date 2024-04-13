@@ -2,54 +2,81 @@ package br.com.peopleSystem.cadastroPessoas;
 
 import java.util.Scanner;
 
-public class Cliente_ extends Pessoa_{
+import br.com.peopleSystem.composicao.Profissao_;
+import br.com.peopleSystem.main.MainCadastroPessoa;
+
+public class Cliente_ extends Pessoa_ {
+
+	//Pessoa_ pessoa1 = new Pessoa_();
 	
-	Pessoa_ pessoa1 = new Pessoa_();
-	
-	private String cargo, profissao;
+	private Profissao_ profissao;
 	private int codigo;
 	
-	public Cliente_(){
-		
+	public Cliente_() {	
 	}
-	
+
 	public void cadastroCliente() {
-		Scanner scr = new Scanner(System.in);
 		
+		Scanner leitor = new Scanner(System.in);
+		
+
 		System.out.println("Digite a CÓDIGO do Cliente: ");
-		this.codigo = scr.nextInt();
-		scr.nextLine();
+		this.codigo = leitor.nextInt();
 		
-		System.out.println("Digite o NOME do Cliente: ");
-		pessoa1.setNome(scr.nextLine());
+
+		add();
+
+		System.out.println("Selecione a PROFISSÃO do Cliente: ");
 		
-		
-		System.out.println("Digite a DATA DE NASCIMENTO do Cliente: ");
-		pessoa1.setDataNascimento(scr.nextInt());
-		scr.nextLine();
-		
-		System.out.println("Digite o ENDEREÇO do Cliente: ");
-		pessoa1.setEndereco(scr.nextLine());
-		
-		
-		System.out.println("Digite o NUMERO DE CONTATO do Cliente: ");
-		pessoa1.setContato(scr.nextInt());
-		scr.nextLine();
+		do {
+			System.out.println("\n        Selecione um cadastro ");
+			System.out.println("--------------------------------------");
+			System.out.println("1 - Profissão 1");
+			System.out.println("2 - ihbiyhboiyn");
+			System.out.println("3 - Exit");
+			System.out.print("\nSelect a Menu Option: ");
+			
+			int choice = leitor.nextInt();
+
+			switch (choice) {
+			case 1:
+				this.profissao = Profissao_.PROFISSÃO1;
+				System.out.println("Profissão 1");
+				MainCadastroPessoa.getInput();
+				break;
+			case 2:
+				this.profissao = Profissao_.PROFISSÃO2;
+				break;
+			case 3:
+				this.profissao = Profissao_.PROFISSÃO3;
+				break;
+			case 4:
+				this.profissao = Profissao_.PROFISSÃO4;
+				break;
+			case 5:
+				this.profissao = Profissao_.PROFISSÃO3;
+				break;
+			case 6:
+				this.profissao = Profissao_.PROFISSÃO3;
+				break;
+			case 7:
+				this.profissao = Profissao_.PROFISSÃO3;
+				break;
+			case 8:
+				this.profissao = Profissao_.PROFISSÃO3;
+				break;
+			case 9:
+				this.profissao = Profissao_.PROFISSÃO3;
+				break;
+			case 10:
+				this.profissao = Profissao_.PROFISSÃO3;
+				break;
+			default:
+				System.out.println("Invalid option. Please try again.");
+			}
+		} while (true); 
 
 		
-		System.out.println("Digite a PROFISSÃO do Funcionário: ");
-		this.profissao = scr.nextLine();
-		
-		
-		scr.close();
-	}
-
-	public String getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
 	}
 
 	public int getCodigo() {
@@ -60,11 +87,11 @@ public class Cliente_ extends Pessoa_{
 		this.codigo = codigo;
 	}
 
-	public String getProfissao() {
+	public Profissao_ getProfissao() {
 		return profissao;
 	}
 
-	public void setProfissao(String profissao) {
+	public void setProfissao(Profissao_ profissao) {
 		this.profissao = profissao;
 	}
 
