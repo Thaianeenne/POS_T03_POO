@@ -13,11 +13,16 @@ public class MainCadastroPessoa {
 	}
 
 	public static void getInput() {
-		Funcionario_ funcionario1 = new Funcionario_();
-		Cliente_ cliente1 = new Cliente_();
-
+		
 		Scanner scanner = new Scanner(System.in);
 
+		
+		Funcionario_ funcionario1 = new Funcionario_();
+		Cliente_ cliente1 = new Cliente_();
+		int choice, novoCadastro, X;
+		
+
+		
 		do {
 			System.out.println("\n        Selecione um cadastro ");
 			System.out.println("--------------------------------------");
@@ -25,15 +30,39 @@ public class MainCadastroPessoa {
 			System.out.println("2 - Cadastrar Funcionario");
 			System.out.println("3 - Exit");
 			System.out.print("\nSelect a Menu Option: ");
-
-			int choice = scanner.nextInt();
+			X = 1;
+			
+			choice = scanner.nextInt();
 
 			switch (choice) {
 			case 1:
 				cadastroCliente(cliente1);
+				
+				System.out.println("Deseja fazer um novo cadastro?");
+				System.out.println("1 - Sim");
+				System.out.println("2 - Não");
+				novoCadastro = scanner.nextInt();
+
+				if (novoCadastro == 1) {
+					MainCadastroPessoa.getInput();
+				} else {
+					X += 1;
+				}
 				break;
 			case 2:
 				cadastroFuncionario(funcionario1);
+
+				System.out.println("Deseja fazer um novo cadastro?");
+				System.out.println("1 - Sim");
+				System.out.println("2 - Não");
+				novoCadastro = scanner.nextInt();
+
+				if (novoCadastro == 1) {
+					MainCadastroPessoa.getInput();
+				} else {
+					X += 1;
+					
+				}
 				break;
 			case 3:
 				System.out.println("Nenhuma opção");
@@ -41,17 +70,22 @@ public class MainCadastroPessoa {
 			default:
 				System.out.println("Invalid option. Please try again.");
 			}
-		} while (true); // O loop continua indefinidamente até que o usuário escolha sair
+			
+		} while (X == 1);
+		
+		System.out.println("Sistema encerrado, \nObrigado!");
 
+		//System.out.println("Programa encerrado!");
+		//scanner.close();
 	}
 
 	private static void cadastroFuncionario(Funcionario_ funcionario1) {
-		System.out.println("Tentar por o cadastro aqui FUNCIONARIO");
+		System.out.println("\n     CADASTRO FUNCIONARIO");
 		funcionario1.cadastroFuncionario();
 	}
 
 	private static void cadastroCliente(Cliente_ cliente1) {
-		System.out.println("Tentar por o cadastro aqui CLIENTE");
+		System.out.println("\n       CADASTRO CLIENTE");
 		cliente1.cadastroCliente();
 	}
 

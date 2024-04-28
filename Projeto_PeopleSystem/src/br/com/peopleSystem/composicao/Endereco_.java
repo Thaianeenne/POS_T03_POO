@@ -28,7 +28,7 @@ public class Endereco_ {
 		
 		System.out.println("Digite o PAÍS: ");
 		this.pais = scr.nextLine();
-
+		
 	}
 	
 	public String getRua() {
